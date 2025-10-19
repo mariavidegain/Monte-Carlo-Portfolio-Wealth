@@ -23,9 +23,3 @@ The normality assumption ignores fat tails, and extreme market moves.
 Correlation and volatility are assumed constant over time, which is unrealistic in stressed markets.
 The simulation doesn’t account for liquidity constraints or rebalancing costs.
 Interest rates, bond duration effects, and inflation aren’t modelled explicitly.
-
-# Requirements
-numpy
-pandas
-yfinance
-matplotlib
