@@ -15,7 +15,7 @@ The notebook visualizes a sample of 20 simulated wealth paths, the terminal-weal
 Monthly returns are assumed i.i.d. (independent and identically distributed) and jointly normal.
 The portfolio is rebalanced monthly to maintain the target weights.
 The cash return comes from the 3-month US Treasury Bill rate.
-Returns are expressed as simple monthly percentages rather than log returns, since they’re easier to interpret and combine across assets, and the difference from log returns at a monthly frequency is practically negligible
+Returns are expressed as simple monthly percentages rather than log returns, since they’re easier to interpret and combine across assets, and the difference from log returns at a monthly frequency is practically negligible.
 The model excludes transaction costs, taxes, and fees.
 
 # Limitations
