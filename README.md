@@ -1,25 +1,28 @@
 # Monte-Carlo-Portfolio-Wealth
-This notebook simulates the performance of a simple portfolio composed of equity (SPY), bonds (IEF), and a small allocation to cash (3m Tbill).
-The goal is to model possible future paths of portfolio value over time, understand the dispersion of outcomes, and estimate basic risk metrics.
+This project simulates the performance of a simple portfolio composed of equity (SPY), bonds (IEF), and a small allocation to cash (3M T-Bill).  
+The goal is to model possible future portfolio paths, and estimate basic risk metrics.
 
-# Approach
-Monthly data is downloaded from Yahoo Finance (2005–2025) for SPY and IEF and from FRED database (2005-2025) for 3m Tbill.
-Monthly simple returns are calculated for each asset.
-The portfolio maintains fixed target weights of 60% equity, 35% bonds, and 5% cash, with monthly rebalancing.
-Monthly expected returns and the covariance matrix are estimated using the historical data.
-A **Monte Carlo simulation** then generates 10,000 possible 10-year (120-month) scenarios assuming returns follow a multivariate normal distribution.
-Each simulated path represents a potential evolution of portfolio wealth over time, starting from an initial value of 1.
-The notebook visualizes a sample of 20 simulated wealth paths, the terminal-wealth distribution, and computes the median maximum drawdown and 1-year 95% VaR.
+We start by downloading monthly price data for SPY and IEF from Yahoo Finance (2005–2025), and the 3M Treasury Bill rate from the FRED database.  
+Monthly simple returns are calculated for each asset. The portfolio keeps fixed target weights of 60% equity, 35% bonds, and 5% cash, with monthly rebalancing.
 
-# Assumptions
-Monthly returns are assumed i.i.d. (independent and identically distributed) and jointly normal.
-The portfolio is rebalanced monthly to maintain the target weights.
-The cash return comes from the 3-month US Treasury Bill rate.
-Returns are expressed as simple monthly percentages rather than log returns, since they’re easier to interpret and combine across assets, and the difference from log returns at a monthly frequency is practically negligible.
-The model excludes transaction costs, taxes, and fees.
+We estimate monthly average returns and the covariance matrix from historical data.  
+A Monte Carlo simulation then generates 10,000 different 10-year (120-month) paths, assuming returns follow a multivariate normal distribution. Each path represents a potential evolution of portfolio wealth over time, starting from an initial value of 1.
 
-# Limitations
-The normality assumption ignores fat tails, and extreme market moves.
-Correlation and volatility are assumed constant over time, which is unrealistic in stressed markets.
-The simulation doesn’t account for liquidity constraints or rebalancing costs.
-Interest rates, bond duration effects, and inflation aren’t modelled explicitly.
+The simulation shows:
+- 50 sample simulated portfolio paths  
+- The terminal wealth distribution  
+- The median maximum drawdown  
+- The 1-year 95% Value-at-Risk (VaR)
+
+### Assumptions
+- Monthly returns are i.i.d. and jointly normal.  
+- Portfolio is rebalanced monthly to maintain target weights.  
+- The cash return is based on the 3M US Treasury Bill rate.  
+- Returns are calculated as simple monthly percentages instead of log returns.  
+- Transaction costs, taxes, and fees are excluded.
+
+### Limitations
+- Normality assumption ignores fat tails and extreme events.  
+- Correlation and volatility are assumed constant over time.  
+- Liquidity constraints and rebalancing costs are not considered.  
+- Interest rate and inflation dynamics are not explicitly modelled.
